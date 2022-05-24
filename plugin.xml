@@ -16,6 +16,7 @@ El plugin avisos le permite agregar advertencias sobre tipos de glpi: tickets, c
 Mediante una simple consulta en base de datos podemos avisar al usuario por ejemplo de si un ticket no tiene técnico asignado.
 
 ----------------------------------------
+<!-- 
 select 'x' from glpi_tickets
 where not exists
 (select '' from glpi_tickets_users
@@ -23,6 +24,7 @@ where tickets_id=glpi_tickets.id
 and type = 2)
 and glpi_tickets.entities_id=1
 and glpi_tickets.status < 6
+-->
 -----------------------------------------
 
 Puedes configurar: 
@@ -42,6 +44,7 @@ The notices plugin allows you to add warnings about glpi types: tickets, compute
 Through a simple query in the database, we can notify the user, for example, if a ticket does not have an assigned technician
 
 ----------------------------------------
+<!-- 
 select 'x' from glpi_tickets
 where not exists
 (select '' from glpi_tickets_users
@@ -49,6 +52,7 @@ where tickets_id=glpi_tickets.id
 and type = 2)
 and glpi_tickets.entities_id=1
 and glpi_tickets.status < 6
+-->
 -----------------------------------------
 
 You can configure:
@@ -67,6 +71,7 @@ Le plugin notices permet d'ajouter des avertissements sur les types de glpi : ti
 Grâce à une simple requête dans la base de données, nous pouvons notifier l'utilisateur, par exemple, si un ticket n'a pas de technicien assigné.
 
 ----------------------------------------
+<!-- 
 select 'x' from glpi_tickets
 where not exists
 (select '' from glpi_tickets_users
@@ -74,6 +79,7 @@ where tickets_id=glpi_tickets.id
 and type = 2)
 and glpi_tickets.entities_id=1
 and glpi_tickets.status < 6
+-->
 -----------------------------------------
 
 Vous pouvez configurer :
