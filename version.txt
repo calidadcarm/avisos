@@ -1,0 +1,7 @@
+Versión 1.0.0 - 16-06-2017
+---------------------------
+Cambios para la instalación en la versión 9.1.X
+Nuevo fichero version.txt
+Modificado /avisos/setup.php
+
+

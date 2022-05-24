@@ -1,0 +1,126 @@
+<root>
+   <name>Avisos</name>
+   <key>avisos</key>
+   <state>stable</state>
+   <logo>https://raw.githubusercontent.com/calidadcarm/avisos/main/imagenes/system-attention-icon.png</logo>
+   <description>
+      <short>
+         <es>El plugin avisos le permite agregar advertencias sobre tipos de glpi: tickets, computadoras, usuarios ...</es>
+         <en>The warning plugin allows you to add warnings on glpi types : tickets, computers, users…</en>
+         <fr>Le plugin d'avertissement permet d'ajouter des avertissements sur les types de glpi : tickets, ordinateurs, utilisateurs...</fr>
+      </short>
+      <long>
+         <es>
+El plugin avisos le permite agregar advertencias sobre tipos de glpi: tickets, computadoras, usuarios ...
+
+Mediante una simple consulta en base de datos podemos avisar al usuario por ejemplo de si un ticket no tiene técnico asignado.
+
+----------------------------------------
+select 'x' from glpi_tickets
+where not exists
+(select '' from glpi_tickets_users
+where tickets_id=glpi_tickets.id
+and type = 2)
+and glpi_tickets.entities_id=1
+and glpi_tickets.status < 6
+-----------------------------------------
+
+Puedes configurar: 
+
+Si quieres que muestre el aviso al crear el objeto y al mostrarlo.
+
+Color de fuente en la descripción del aviso.
+
+Color y tamaño de fuente en la cabecera del aviso.
+
+Permisos de ejecución del aviso por perfiles de usuario o por grupos de usarios.
+
+         </es>
+         <en>
+The notices plugin allows you to add warnings about glpi types: tickets, computers, users...
+
+Through a simple query in the database, we can notify the user, for example, if a ticket does not have an assigned technician
+
+----------------------------------------
+select 'x' from glpi_tickets
+where not exists
+(select '' from glpi_tickets_users
+where tickets_id=glpi_tickets.id
+and type = 2)
+and glpi_tickets.entities_id=1
+and glpi_tickets.status < 6
+-----------------------------------------
+
+You can configure:
+
+If you want it to show the warning when creating the object and when displaying it.
+
+Font color in the notice description.
+
+Font color and size in the notice header.
+
+Ad execution permissions by user profiles or user groups.
+         </en>
+         <fr>
+Le plugin notices permet d'ajouter des avertissements sur les types de glpi : tickets, ordinateurs, utilisateurs...
+
+Grâce à une simple requête dans la base de données, nous pouvons notifier l'utilisateur, par exemple, si un ticket n'a pas de technicien assigné.
+
+----------------------------------------
+select 'x' from glpi_tickets
+where not exists
+(select '' from glpi_tickets_users
+where tickets_id=glpi_tickets.id
+and type = 2)
+and glpi_tickets.entities_id=1
+and glpi_tickets.status < 6
+-----------------------------------------
+
+Vous pouvez configurer :
+
+Si vous voulez qu'il affiche l'avertissement lors de la création de l'objet et lors de son affichage.
+
+Couleur de la police dans la description de l'avis.
+
+Couleur et taille de la police dans l'en-tête de l'avis.
+
+Autorisations d'exécution des annonces par profils d'utilisateurs ou groupes d'utilisateurs.
+         </fr>
+      </long>
+   </description>
+   <homepage>https://github.com/calidadcarm/avisos/</homepage>
+   <download>https://github.com/calidadcarm/avisos/releases</download>
+   <issues>https://github.com/calidadcarm/avisos/issues</issues>
+   <readme>https://github.com/calidadcarm/avisos/README.md</readme>
+   <authors>
+      <author>CARM</author>
+   </authors>
+   <versions>
+      <version>
+         <num>1.0.1</num>
+         <compatibility>~9.4.6</compatibility>
+         <download_url>https://github.com/pluginsGLPI/avisos/releases/download/1.0.1/glpi-avisos-1.0.1.tar.bz2</download_url>
+      </version>
+   </versions>
+   <langs>
+      <lang>es_ES</lang>
+   </langs>
+   <license>AGPL3</license>
+   <tags>
+      <es>
+         <tag>Avisos</tag>
+         <tag>Advertencias</tag>         
+      </es>
+      <en>
+         <tag>Notices</tag>
+         <tag>Warnings</tag>
+      </en>
+      <fr>
+         <tag>Avis</tag>
+         <tag>Mises en garde</tag>
+      </fr>
+   </tags>
+   <screenshots>
+      <screenshot>https://raw.githubusercontent.com/pluginsGLPI/fields/master/fields.gif</screenshot>
+   </screenshots>
+</root>
