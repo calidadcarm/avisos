@@ -95,9 +95,9 @@ Autorisations d'exécution des annonces par profils d'utilisateurs ou groupes d'
       </long>
    </description>
    <homepage>https://github.com/calidadcarm/avisos/</homepage>
-   <download>https://github.com/calidadcarm/avisos/releases</download>
+   <download>https://github.com/calidadcarm/avisos/releases/tag/Plugin-Avisos-1.0.1</download>
    <issues>https://github.com/calidadcarm/avisos/issues</issues>
-   <readme>https://github.com/calidadcarm/avisos/README.md</readme>
+   <readme>https://github.com/calidadcarm/avisos/blob/main/README.md</readme>
    <authors>
       <author>CARM</author>
    </authors>
