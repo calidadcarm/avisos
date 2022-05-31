@@ -41,6 +41,10 @@ class PluginAvisosProfile extends Profile {
       return true;
    }
    
+   static function getIcon() {
+		return "fas fa-user-lock";
+	 }
+
    static function createFirstAccess($ID) {
       //85
       self::addDefaultProfileInfos($ID,

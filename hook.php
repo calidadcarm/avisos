@@ -10,6 +10,30 @@
    ----------------------------------------------------------
  */
 
+function notMigratedDatetime() {
+	global $DB;
+
+	$result = $DB->request([
+		//	'COUNT'       => 'cpt',
+			'FROM'        => 'information_schema.columns',
+			'WHERE'       => [
+				 'information_schema.columns.table_schema' => $DB->dbdefault,
+				 'information_schema.columns.table_name'   => ['LIKE', 'glpi\_plugin\_avisos\_%'],
+				 'information_schema.columns.data_type'    => ['datetime']
+			]
+	]);
+
+	while ($data = $result->next()) { 
+
+		// Convert datetime to timestamp
+		$query = "ALTER TABLE `".$data["TABLE_NAME"]."` MODIFY `".$data["COLUMN_NAME"]."` TIMESTAMP DEFAULT CURRENT_TIMESTAMP;";
+	//	echo $query;
+		$DB->query($query);
+			
+	}
+
+}
+
 
 // Install process for plugin : need to return true if succeeded
 function plugin_avisos_install() {
@@ -21,8 +45,18 @@ function plugin_avisos_install() {
   
    if (!$DB->TableExists("glpi_plugin_avisos_avisos")){
 		$DB->runFile(GLPI_ROOT . '/plugins/avisos/sql/install.sql');
-   } 
-      
+	} 
+
+	if ($DB->TableExists("glpi_plugin_avisos_avisos")){
+
+		if ($DB->areTimezonesAvailable()) {
+
+			notMigratedDatetime();
+
+	 	}
+
+	}
+
    PluginAvisosProfile::initProfile();
    PluginAvisosProfile::createFirstAccess($_SESSION['glpiactiveprofile']['id']);	
    
@@ -48,7 +82,7 @@ function plugin_avisos_uninstall() {
 
 function plugin_avisos_postinit() {
    global $CFG_GLPI;
-   
+
    return true;
 }
 

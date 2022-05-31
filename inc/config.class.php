@@ -25,23 +25,29 @@ class PluginAvisosConfig extends CommonDBTM {
       return __('Avisos', 'Avisos');
    }   
    
+   static function getIcon() {
+    return "fas fa-head-side-cough";
+ }
    
   static function getMenuContent() {
       global $CFG_GLPI;
 
       $menu['page'] = "/plugins/avisos/front/config.php";
       $menu['title'] = self::getTypeName();
+      $menu['icon']   = self::getIcon();
 	  
 	  $menu['options']['general']['page']               = "/plugins/avisos/front/general.php";
       $menu['options']['general']['title']              = __("Configuraci&oacute;n general", "Configuraci&oacute;n general");
 	  
       $menu['options']['aviso']['page']               = "/plugins/avisos/front/aviso.php";
       $menu['options']['aviso']['title']              = __('Avisos', 'Avisos');
+      $menu['options']['aviso']['icon']               = PluginAvisosAviso::getIcon();
       $menu['options']['aviso']['links']['add']       = '/plugins/avisos/front/aviso.form.php';
       $menu['options']['aviso']['links']['search']    = '/plugins/avisos/front/aviso.php';
 
-	  $menu['options']['right']['page']               = "/plugins/avisos/front/right.form.php";
+	    $menu['options']['right']['page']               = "/plugins/avisos/front/right.form.php";
       $menu['options']['right']['title']              = __("Permisos por aviso", "Permisos por aviso");
+      $menu['options']['right']['icon']               = PluginAvisosProfile::getIcon();
       
 	  return $menu;
    }
