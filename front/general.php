@@ -25,11 +25,12 @@ if ($plugin->isActivated("avisos")) {
       "PluginAvisosConfig",
       "avisos"
    );
-   
+/*  
 if (!isset($_SESSION['glpi_js_toload']['colorpicker'])) {
             echo Html::css('lib/jqueryplugins/spectrum-colorpicker/spectrum.css');
             Html::requireJs('colorpicker');
-} 
+}
+*/
 	
 	$haveright = Session::haveRight("plugin_avisos",UPDATE);
 

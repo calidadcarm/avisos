@@ -11,6 +11,8 @@
  */
 include (GLPI_ROOT."/plugins/avisos/inc/function.avisos.php");
 
+define ("PLUGIN_AVISOS_VERSION", "1.0.2");
+
 // Init the hooks of the plugins -Needed
 function plugin_init_avisos() {
    global $PLUGIN_HOOKS,$CFG_GLPI, $DB;
@@ -127,7 +129,7 @@ $tipos=$CFG_GLPI["document_types"];
 function plugin_version_avisos() {
 
    return array('name'          => _n('Avisos' , 'Avisos' ,2, 'Avisos'),
-                'version'        => '1.0.1',
+                'version'        => PLUGIN_AVISOS_VERSION,
                 'license'        => 'AGPL3',
                 'author'         => '<a href="http://www.carm.es">CARM</a>',
                 'homepage'       => 'http://www.carm.es',

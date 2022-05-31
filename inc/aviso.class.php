@@ -31,6 +31,10 @@ class PluginAvisosAviso extends CommonDBTM {
       return __('Avisos', 'Avisos');
    }
  
+   static function getIcon() {
+		return "fas fa-volume-up";
+	 }
+
 
    /**
     * Get search function for the class

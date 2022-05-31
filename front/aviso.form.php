@@ -51,12 +51,12 @@ if (isset($_POST["add"])) {
       "PluginAvisosConfig",
       "aviso"
    );
-   
+/*
 if (!isset($_SESSION['glpi_js_toload']['colorpicker'])) {
             echo Html::css('lib/jqueryplugins/spectrum-colorpicker/spectrum.css');
             Html::requireJs('colorpicker');
 }    
-   
+*/
     if (Session::haveRight('plugin_avisos',UPDATE)) {		
 		$PluginAvisosAviso ->display(array('id' => $_GET["id"]));
 		Html::footer();
