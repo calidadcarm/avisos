@@ -24,4 +24,4 @@ Color de fuente en la descripción del aviso.
 
 Color y tamaño de fuente en la cabecera del aviso.
 
-Permisos de ejecución del aviso por perfiles de usuario o por grupos de usarios.
+Permisos de ejecución del aviso por perfiles de usuario o por grupos de usuarios.
