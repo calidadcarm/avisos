@@ -143,6 +143,11 @@ class PluginAvisosProfile extends Profile {
 	
 	$query = "Select id, name from glpi_plugin_avisos_avisos";
 	$result = $DB->query($query);	
+
+   /* 
+   
+   // [INICIO] [CRI] [JMZ18G] fetch_array deprecated function
+
 	$num_rows = $DB->numrows($result);	
 	if ($num_rows > 0){
       //while ($row = $DB->fetch_array($result, MYSQL_NUM)) {
@@ -153,6 +158,20 @@ class PluginAvisosProfile extends Profile {
                            'field'    => $field); 
 		}
 	}
+
+   */
+
+  if ($result && $DB->numrows($result)) {
+      while ($data = $DB->fetchAssoc($result)) {
+         $field = 'plugin_avisos_aviso_'.$data['id'];
+         $rights[] = array('rights'    => array(CREATE  => __('Permitir')),
+                        'label'    => "Acceso al aviso '".$data['name']."'",
+                        'field'    => $field); 
+      }
+   }
+
+  // [FINAL] [CRI] [JMZ18G] fetch_array deprecated function
+
       return $rights;
  }  
    
@@ -247,7 +266,8 @@ class PluginAvisosProfile extends Profile {
 		  
 		  $result = $DB->query($permisos);
 		//$rights = $DB->fetch_array($result, MYSQL_NUM);
-		  $rights = $DB->fetch_array($result, MYSQLI_NUM); // [CRI] [JMZ18G] MYSQL_NUM deprecated function
+		//$rights = $DB->fetch_array($result, MYSQLI_NUM); // [CRI] [JMZ18G] MYSQL_NUM deprecated function
+        $rights = $DB->fetchAssoc($result); //[CRI] [JMZ18G] fetch_array deprecated function
           echo "<tr class='tab_bg_1'><th style='background-color: #f9fbfb;' width='70%' align='left'>" . $data['name'] . "&nbsp: </th><td align='center' width='40%'>";
 
 $rand = mt_rand();

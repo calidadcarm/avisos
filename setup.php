@@ -11,7 +11,7 @@
  */
 include (GLPI_ROOT."/plugins/avisos/inc/function.avisos.php");
 
-define ("PLUGIN_AVISOS_VERSION", "1.0.2");
+define ("PLUGIN_AVISOS_VERSION", "1.0.1");
 
 // Init the hooks of the plugins -Needed
 function plugin_init_avisos() {
@@ -103,7 +103,8 @@ $tipos=$CFG_GLPI["document_types"];
 	
 			if ($num_rows > 0){
 				//while ($row = $DB->fetch_array($result_gobject, MYSQL_NUM)) {
-				  while ($row = $DB->fetch_array($result_gobject, MYSQLI_NUM)) { // [CRI] [JMZ18G] MYSQL_NUM deprecated function
+				//while ($row = $DB->fetch_array($result_gobject, MYSQLI_NUM)) { // [CRI] [JMZ18G] MYSQL_NUM deprecated function
+					while ($row = $DB->fetchAssoc($result_gobject)) { // [CRI] [JMZ18G] fetch_array deprecated function
 				  
 					$itemtype = $row['itemtype'];
 					$PLUGIN_HOOKS['item_add']['avisos'][$itemtype] = 'plugin_avisos_check_item';
