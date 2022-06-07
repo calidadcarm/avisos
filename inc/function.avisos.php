@@ -4,7 +4,7 @@
    Plugin Avisos 1.0
    GLPI 0.85.5
   
-   Autor: Elena Martínez Ballesta.
+   Autor: Elena Martï¿½nez Ballesta.
    Fecha: Julio 2016
 
    ----------------------------------------------------------
@@ -25,7 +25,7 @@ function formatSQL($request) {
 }	
 
 // Devuelve true si el elemento necesita ser avisado
-// porque la select no devuelve campo vacío.
+// porque la select no devuelve campo vacï¿½o.
 function necesita_aviso($select_item, $items_id, $table){
 	global $DB;
 	
@@ -60,8 +60,8 @@ function mostrar_aviso_grupo($avisos_id, $groups_id){
 	}
 }
  
-// Función que obtiene los IDs de los avisos que aplican a un item
-// Sólo aquellos definidos para ese elemento y que estén activos
+// Funciï¿½n que obtiene los IDs de los avisos que aplican a un item
+// Sï¿½lo aquellos definidos para ese elemento y que estï¿½n activos
 function get_avisos_from_item($item){
 	global $DB;
 	
@@ -82,7 +82,8 @@ function get_avisos_from_item($item){
 		$groups = Group_User::getUserGroups($users_id); // Grupos a los que pertenece el usuario
 		
 	  //while ($row = $DB->fetch_array($result, MYSQL_NUM)) {
-		while ($row = $DB->fetch_array($result, MYSQLI_NUM)) {	// [CRI] [JMZ18G] MYSQL_NUM deprecated function
+		//while ($row = $DB->fetch_array($result, MYSQLI_NUM)) {	// [CRI] [JMZ18G] MYSQL_NUM deprecated function
+		while ($row = $DB->fetchAssoc($result)) { // [CRI] [JMZ18G] fetch_array deprecated function
 			$id = $row['id'];
 			$right = "plugin_avisos_aviso_".$id;
 			if (Session::haveRight($right, CREATE)){
@@ -126,7 +127,7 @@ function get_avisos_from_item($item){
     return $avisos;		
 }
 
-// Función que llama al mostrar el elemento
+// Funciï¿½n que llama al mostrar el elemento
 function plugin_avisos_check_form_item($item){
 	global $CFG_GLPI, $DB;
 	
@@ -152,7 +153,8 @@ function plugin_avisos_check_form_item($item){
 			if ($text !== ""){
 				$query = "Select * from `glpi_plugin_avisos_configs` where id='1';";
 				$result = $DB->query($query);
-				$config = $DB->fetch_array($result);
+			//$config = $DB->fetch_array($result);
+				$config = $DB->fetchAssoc($result); // [CRI] [JMZ18G] fetch_array deprecated function
 
 		$tabla='<table border="0">
 			  <tr>

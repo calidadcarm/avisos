@@ -160,9 +160,10 @@ class PluginAvisosAviso extends CommonDBTM {
 	  
 	 //Nombre del Aviso
       echo "<tr class='tab_bg_1'>";
-			echo "<th class='left'  colspan='1'>".__('Texto aviso','Texto aviso')."</th>";
+			echo "<th class='left'  colspan='1'>".__('Texto avisos','Texto avisos')."</th>";
 			echo "<td class='left'  colspan='3'>";
-				Html::autocompletionTextField($this,"name",array('size' => "124"));
+				//Html::autocompletionTextField($this,"name",array('size' => "124"));
+				echo Html::input('name', ['value' => $this->fields['name'], 'size' => "124"]);
 			echo "</td>";
       echo "</tr>";
 
@@ -304,7 +305,8 @@ Dropdown::showItemTypes('itemtype', $CFG_GLPI["document_types"], array('value' =
 		//Desplegable avisos
 		echo "<select name=$myname id=$myname>\n";
 		if ($DB->numrows($result)){
-			while ($data=$DB->fetch_array($result)){
+		//while ($data=$DB->fetch_array($result)){ 
+			while ($data=$DB->fetchAssoc($result)){ // [CRI] [JMZ18G] fetch_array deprecated function
 				echo "<option value='".$data[0]."'>".$data[1]."</option>\n";			
 			}
 		}

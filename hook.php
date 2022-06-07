@@ -111,7 +111,8 @@ function plugin_avisos_check_item($item){
 				  
 			$query = "Select * from `glpi_plugin_avisos_configs` where id='1';";
 			$result = $DB->query($query);
-			$config = $DB->fetch_array($result);
+		//$config = $DB->fetch_array($result);
+			$config = $DB->fetchAssoc($result); // [CRI] [JMZ18G] fetch_array deprecated function
 	  
 			Session::addMessageAfterRedirect("<img src='".$CFG_GLPI["root_doc"]."/plugins/avisos/imagenes/warning.png' alt='Avisos' align='absmiddle'><font color='".$config['color']."' SIZE='".$config['size']."'> ".$config['cabecera']."<br></font>".$text,false, INFO, false);
 		}

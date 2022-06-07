@@ -80,7 +80,7 @@ if (!isset($_SESSION['glpi_js_toload']['colorpicker'])) {
 	  
 	 // Tamaño de la cabecera
       echo "<tr class='tab_bg_1'>";
-			echo "<th style='background-color: #f9fbfb;' class='left' width='150px'>".__('Tama&ntilde;o de letra','Tama&ntilde;o de letra')."</th>";
+			echo "<th style='background-color: #f9fbfb;' class='left' width='150px'>".__('Tamaño de letra','Tamaño de letra')."</th>";
 			echo "<td class='left'>";
 				
          echo "<div class='fa-label'>
