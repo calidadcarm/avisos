@@ -2,4 +2,4 @@
 
 ## Reporting a Vulnerability
 
-Please contact adm-glpi@listas.carm.es
+Please contact jdmarinz@inforges.es
